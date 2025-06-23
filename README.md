@@ -1,0 +1,1 @@
+Launch example: py .\src\deamons.py --modele_path .\modeles\Mistral-7B-Instruct-v0.3-Q4_K_M.gguf --rag_path .\modeles\all-MiniLM-L6-v2\ --rag_data .\data\
