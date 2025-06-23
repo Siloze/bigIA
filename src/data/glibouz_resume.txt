@@ -1,0 +1,58 @@
+Glibouz est un jeu vidéo d'aventure, de stratégie et de gestion développé par le studio indépendant français Les Pixels Sauvages. Sorti en 2023, ce jeu a rapidement conquis une large communauté de joueurs passionnés par les mondes imaginaires profonds et les mécaniques hybrides. Il se distingue par sa direction artistique singulière, son univers narratif dense et sa jouabilité atypique.
+
+### Une histoire riche et mystérieuse
+
+Le jeu se déroule sur la planète Nébularia, une terre oubliée à la géographie instable, recouverte de forêts phosphorescentes, de ruines technologiques, et de lacs d’énergie vivante. Le joueur incarne **Lira**, une éclaireuse intergalactique envoyée par l'Alliance des Mondes Libres pour enquêter sur des perturbations énergétiques anormales. Rapidement, elle découvre l’existence des **Gliboux**, des entités semi-organiques, semi-numériques, qui altèrent la réalité autour d’elles. Ces créatures sont à la fois menaçantes et fascinantes : certaines sont hostiles, d'autres cherchent un lien avec l’héroïne.
+
+Lira va devoir établir des campements, explorer les zones dangereuses, reconstituer l’histoire ancienne de Nébularia, et comprendre l’origine des Gliboux. À mesure que l’histoire progresse, le joueur découvre qu’un ancien peuple appelé les **Séliards** avait jadis tenté de contrôler les Gliboux pour exploiter leur énergie — une erreur qui a mené à la catastrophe planétaire actuelle.
+
+Le récit de Glibouz est non linéaire. Le joueur peut découvrir les événements dans un ordre relativement libre, influençant certaines rencontres ou dénouements. Des journaux audio, artefacts anciens et interactions avec des PNJ (personnages non joueurs) permettent d'approfondir la compréhension du lore.
+
+### Mécaniques de jeu hybrides
+
+Le cœur du gameplay repose sur un subtil mélange de plusieurs genres :
+
+- **Exploration à la troisième personne**, avec des environnements semi-ouverts à découvrir à pied, en deltaplane gravitationnel ou via des portails.
+- **Combats en temps réel**, contre des Gliboux hostiles ou des formes corrompues, avec un système de compétences évolutives.
+- **Gestion de base** : Lira peut construire des refuges temporaires qui servent de hubs pour la recherche, la fabrication et la communication.
+- **Dressage de Gliboux** : certaines créatures peuvent être pacifiées, apprivoisées et entraînées pour accompagner Lira dans ses missions. Chaque Gliboux possède une personnalité, des besoins et un arbre de talents unique.
+- **Énigmes environnementales** : basées sur les pouvoirs des Gliboux compagnons, elles demandent au joueur de réfléchir à la manière de combiner les compétences pour progresser.
+
+Cette richesse mécanique demande une prise en main progressive. Un système de tutoriels intégrés au récit accompagne le joueur sans casser l'immersion.
+
+### Graphismes et ambiance
+
+L’esthétique de Glibouz est peinte à la main, avec des textures douces, une palette de couleurs dominée par les bleus, violets et verts néon. Chaque zone du jeu possède une ambiance sonore unique, composée par **Clara Dune**, une artiste connue pour ses compositions électroniques oniriques. La bande-son est interactive : elle réagit aux actions du joueur, créant une immersion musicale dynamique.
+
+Les animations sont fluides et expressives, notamment celles des Gliboux qui présentent un éventail d’émotions étonnant pour des créatures fictives. Les visuels ont été salués pour leur originalité, évoquant à la fois des contes pour enfants et de la science-fiction psychédélique.
+
+### Taille, plateformes et performances
+
+Le jeu pèse environ **18 Go** à l'installation et nécessite une configuration modeste pour tourner à 60 FPS en qualité moyenne. Il est compatible avec **Windows**, **Linux** et une version optimisée pour **Steam Deck** a été déployée courant 2024.
+
+L’optimisation a été saluée, notamment la fluidité des transitions entre les zones, la gestion efficace des sauvegardes automatiques et la compatibilité avec les mods. Le jeu n’a pas encore été porté sur console, mais une version Nintendo Switch 2 est en préparation.
+
+### Multijoueur et rejouabilité
+
+Bien que Glibouz soit avant tout une aventure solo, les développeurs ont intégré un mode **coopératif local** en écran partagé ou en ligne. Deux joueurs peuvent incarner Lira et un Gliboux spécial, nommé **Korb**, avec des capacités complémentaires.
+
+Le jeu propose plusieurs niveaux de difficulté, ainsi qu’un **mode narration** pour les joueurs préférant l’histoire aux combats. Un **mode New Game+** permet de recommencer l’aventure avec certains acquis, et de débloquer de nouveaux dialogues et zones secrètes.
+
+### Réception et communauté
+
+À sa sortie, Glibouz a reçu une note moyenne de **89/100** sur Metacritic, avec des éloges pour sa narration, son style visuel et l’originalité de son gameplay. De nombreux joueurs ont évoqué des moments d’émotion inattendus avec leurs Gliboux favoris.
+
+La communauté autour de Glibouz est active : fan arts, théories sur le lore, mods, et même un wiki collaboratif ont vu le jour quelques semaines après la sortie. Les développeurs interagissent régulièrement avec les fans, et publient des mises à jour mensuelles basées sur les retours de la communauté.
+
+### Extensions et avenir
+
+Deux extensions ont déjà été annoncées :
+
+1. **"Les Jardins Obscurs"**, prévue pour fin 2025, explorera les régions subterranéennes de Nébularia et introduira un nouveau type de Gliboux bioluminescents.
+2. **"Les Larmes de Korb"**, annoncée pour 2026, ajoutera une dimension tragique à l’histoire en explorant le passé des Séliards et la chute de leur civilisation.
+
+En parallèle, une **adaptation en roman graphique** est en cours de création, supervisée par l’autrice de fantasy Mélanie Curtil.
+
+---
+
+Glibouz est un projet à la fois ambitieux et personnel, un ovni dans le paysage vidéoludique qui ne cherche pas à plaire à tout le monde, mais qui touche profondément ceux qui s’y plongent. Avec son mélange unique de stratégie, d'émotion et de contemplation, il s’impose comme un classique instantané du jeu indépendant.
