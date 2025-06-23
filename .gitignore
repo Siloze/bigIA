@@ -1,3 +1,4 @@
 /modeles/*
 !/modeles/README
 /src/__pycache__/*
+*.old

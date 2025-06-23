@@ -58,8 +58,10 @@
 </head>
 <body>
     <div class="chat-container">
-        <div id="response-box">{{ response }}</div>
-
+        {% for entry in history %}
+            <div class="message user"><strong>Vous :</strong> {{ entry['question'] }}</div>
+            <div class="message ia"><strong>IA :</strong> {{ entry['answer'] }}</div>
+        {% endfor %}
         <form class="input-group" action="/" method="post">
             <input type="text" id="question-input" name="question" placeholder="Pose une question..." required>
             <button type="submit">Envoyer</button>
