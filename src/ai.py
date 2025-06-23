@@ -1,5 +1,4 @@
 from llama_cpp import Llama
-import faiss
 from rag import RAG
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
