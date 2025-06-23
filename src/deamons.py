@@ -24,4 +24,4 @@ if __name__ == "__main__":
     rag = RAG(args.rag_path, args.rag_data)
     modele = ai.load_modele(args.modele_path)
 
-    app.run()
+    app.run(port=5000)
