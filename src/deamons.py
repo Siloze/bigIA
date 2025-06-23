@@ -18,7 +18,7 @@ def index():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--modele_path", type=str, required=True)
-    parser.add_argument("--rag_path", type=str, required=True)
+    parser.add_argument("--rag_path", type=str, default="sentence-transformers/all-MiniLM-L6-v2")
     parser.add_argument("--rag_data", type=str, default="./data/")
     args = parser.parse_args()
 
