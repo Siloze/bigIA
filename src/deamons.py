@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import ai
 from rag import RAG
 import argparse
@@ -6,14 +6,13 @@ import argparse
 print("name: ", __name__)
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
-def index():
-    print("Méthode :", request.method)  # Pour vérifier que tu rentres bien ici
-    reponse = ""
+@app.route("/response", methods=["POST"])
+def generate_response():
     if request.method == "POST":
-        question = request.form["question"]
-        reponse = ai.generate_response(question, modele, rag)
-    return render_template("index.html", response=reponse)
+        data = request.json
+        question = data.get("question", "")
+        answer = ai.generate_response(question, modele, rag)
+    return jsonify({"answer": answer})
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
