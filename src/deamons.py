@@ -11,7 +11,8 @@ def generate_response():
     if request.method == "POST":
         data = request.json
         question = data.get("question", "")
-        answer = ai.generate_response(question, modele, rag)
+        pre_prompt = data.get("pre_prompt", "")
+        answer = ai.generate_response(pre_prompt, question, modele, rag)
     return jsonify({"answer": answer})
 
 if __name__ == "__main__":
@@ -24,4 +25,4 @@ if __name__ == "__main__":
     rag = RAG(args.rag_path, args.rag_data)
     modele = ai.load_modele(args.modele_path)
 
-    app.run(port=5000)
+    app.run(host="0.0.0.0", port=5000)

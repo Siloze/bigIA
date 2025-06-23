@@ -10,14 +10,7 @@ def load_modele(path):
     )
     return llm
 
-def generate_response(question: str, modele: Llama, rag: RAG):
-    pre_prompt = (
-        "Tu es un assistant intelligent. Tu disposes parfois d'informations complémentaires extraites de documents. "
-        "Si une question est clairement en lien avec ces informations, utilise-les. "
-        "Sinon, ignore-les complètement et réponds uniquement en te basant sur tes propres connaissances générales. "
-        "Tu es capable de répondre à de nombreuses questions de culture générale. "
-        "Ne fais jamais référence au fait qu'il y a des documents ou du contexte sauf si la question le mentionne."
-    )
+def generate_response(pre_prompt, question: str, modele: Llama, rag: RAG):
 
  # Nombre de chunks à récupérer
     k = 5

@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
-API_URL = "http://127.0.0.1:5000/response"  # URL de ton API IA
+API_URL = "http://192.168.1.177:5000/response"  # URL de ton API IA
 
 def write_interaction(question, anwser):
     lignes = [
@@ -23,7 +23,9 @@ def index():
     answer = ""
     if request.method == "POST":
         question = request.form["question"]
-        response = requests.post(API_URL, json={"question": question})
+        pre_prompt = request.form.get("pre_prompt", "")  # 👈 récupération ici
+        print(pre_prompt)
+        response = requests.post(API_URL, json={"question": question, "pre_prompt": pre_prompt})
         if response.status_code == 200:
             answer = response.json().get("answer")
         else:

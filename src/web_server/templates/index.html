@@ -9,37 +9,91 @@
             margin: 0;
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            background-color: #f4f4f4;
+            background-color: #eef1f5;
+            overflow: hidden;
+        }
+
+        .layout {
+            display: flex;
+            flex: 1;
+            width: 100%;
         }
 
         .chat-container {
-            flex: 1;
+            flex: 3;
             display: flex;
             flex-direction: column;
-            width: 80vw;
-            margin: auto;
             padding: 20px;
+            box-sizing: border-box;
         }
 
-        #response-box {
+        .settings-container {
             flex: 1;
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-bottom: 15px;
+            background-color: #fff;
+            padding: 20px;
+            border-left: 1px solid #ccc;
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+        }
+
+        .chat-history {
+            flex: 1;
+            max-height: 80vh;
             overflow-y: auto;
-            white-space: pre-wrap;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .exchange {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .message.user {
+            background-color: #d1ecf1;
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+
+        .message.ia {
+            background-color: #fcefcf;
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
         }
 
         .input-group {
             display: flex;
+            gap: 10px;
         }
 
         #question-input {
             flex: 1;
             padding: 10px;
             font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        #pre-prompt {
+            width: 100%;
+            height: 200px;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
         }
 
         button {
@@ -48,24 +102,59 @@
             background-color: #007bff;
             color: white;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
         }
 
         button:hover {
             background-color: #0056b3;
         }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        {% for entry in history %}
-            <div class="message user"><strong>Vous :</strong> {{ entry['question'] }}</div>
-            <div class="message ia"><strong>IA :</strong> {{ entry['answer'] }}</div>
-        {% endfor %}
-        <form class="input-group" action="/" method="post">
-            <input type="text" id="question-input" name="question" placeholder="Pose une question..." required>
-            <button type="submit">Envoyer</button>
-        </form>
+    <div class="layout">
+        <div class="chat-container">
+            <div class="chat-history" id="response-box">
+                {% for entry in history %}
+                <div class="exchange">
+                    <div class="message user"><strong>Vous :</strong><br>{{ entry['question'] }}</div>
+                    <div class="message ia"><strong>IA :</strong><br>{{ entry['answer'] }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            <form class="input-group" action="/" method="post">
+                <input type="text" id="question-input" name="question" placeholder="Pose une question..." required>
+                <input type="hidden" name="pre_prompt" id="hidden-preprompt">
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+        <div class="settings-container">
+            <label for="pre-prompt">Pre-Prompt</label>
+            <textarea id="pre-prompt" placeholder="Écris ici ton pre-prompt...">
+Tu es un assistant intelligent. Tu disposes parfois d'informations complémentaires extraites de documents.
+Si une question est clairement en lien avec ces informations, utilise-les.
+Sinon, ignore-les complètement et réponds uniquement en te basant sur tes propres connaissances générales.
+Tu es capable de répondre à de nombreuses questions de culture générale.
+Ne fais jamais référence au fait qu'il y a des documents ou du contexte sauf si la question le mentionne.
+            </textarea>
+        </div>
     </div>
+
+    <script>
+        // Copie la valeur du pre_prompt dans le champ hidden du formulaire au moment de l'envoi
+        const form = document.querySelector("form");
+        const prePromptInput = document.getElementById("pre-prompt");
+        const hiddenPrePrompt = document.getElementById("hidden-preprompt");
+
+        form.addEventListener("submit", () => {
+            hiddenPrePrompt.value = prePromptInput.value;
+        });
+    </script>
 </body>
 </html>
