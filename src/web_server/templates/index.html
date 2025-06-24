@@ -87,15 +87,25 @@
         }
 
         #pre-prompt {
-            width: 100%;
-            height: 200px;
+            width: 90%;
+            height: 30vh;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+            margin-bottom: 2vh;
+        }
+
+        #rag-prompt {
+            width: 90%;
+            height: 30vh;
             font-size: 14px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 8px;
             resize: vertical;
         }
-
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -115,6 +125,28 @@
             margin-bottom: 5px;
             display: block;
         }
+
+        .file-upload-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s ease;
+            border: none;
+        }   
+
+        .file-upload-btn:hover {
+            background-color: #0056b3;
+        }
+
     </style>
 </head>
 <body>
@@ -128,21 +160,20 @@
                 </div>
                 {% endfor %}
             </div>
-            <form class="input-group" action="/" method="post">
+            <form class="input-group" action="/" method="post" enctype="multipart/form-data">
                 <input type="text" id="question-input" name="question" placeholder="Pose une question..." required>
                 <input type="hidden" name="pre_prompt" id="hidden-preprompt">
+                <input type="hidden" name="rag_prompt" id="hidden-ragprompt">
+                <input type="file" id="file-input" name="fichier" accept=".txt" style="display:none;">
+                <label for="file-input" class="file-upload-btn" title="Envoyer un fichier">+</label>
                 <button type="submit">Envoyer</button>
             </form>
         </div>
         <div class="settings-container">
             <label for="pre-prompt">Pre-Prompt</label>
-            <textarea id="pre-prompt" placeholder="Écris ici ton pre-prompt...">
-Tu es un assistant intelligent. Tu disposes parfois d'informations complémentaires extraites de documents.
-Si une question est clairement en lien avec ces informations, utilise-les.
-Sinon, ignore-les complètement et réponds uniquement en te basant sur tes propres connaissances générales.
-Tu es capable de répondre à de nombreuses questions de culture générale.
-Ne fais jamais référence au fait qu'il y a des documents ou du contexte sauf si la question le mentionne.
-            </textarea>
+            <textarea id="pre-prompt" placeholder="Écris ici ton pre-prompt...">{{ preprompt }}</textarea>
+            <label for="rag-prompt">Rag-Prompt</label>
+            <textarea id="rag-prompt" placeholder="Écris ici ton rag-prompt...">{{ ragprompt }}</textarea>
         </div>
     </div>
 
@@ -150,10 +181,13 @@ Ne fais jamais référence au fait qu'il y a des documents ou du contexte sauf s
         // Copie la valeur du pre_prompt dans le champ hidden du formulaire au moment de l'envoi
         const form = document.querySelector("form");
         const prePromptInput = document.getElementById("pre-prompt");
+        const preRagInput = document.getElementById("rag-prompt");
         const hiddenPrePrompt = document.getElementById("hidden-preprompt");
+        const hiddenPreRag = document.getElementById("hidden-ragprompt");
 
         form.addEventListener("submit", () => {
             hiddenPrePrompt.value = prePromptInput.value;
+            hiddenPreRag.value = preRagInput.value;
         });
     </script>
 </body>

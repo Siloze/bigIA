@@ -18,6 +18,31 @@ def split_text_paragraphs(text, chunk_size=300, overlap=50):
         chunks.append(current_chunk.strip())
     return chunks
 
+
+def split_text_sliding_window(text, chunk_size=300, overlap=50):
+    sentences = re.split(r'(?<=[.!?]) +', text)
+    chunks = []
+    chunk = []
+
+    total_length = 0
+    i = 0
+    while i < len(sentences):
+        sentence = sentences[i]
+        if total_length + len(sentence) <= chunk_size:
+            chunk.append(sentence)
+            total_length += len(sentence)
+            i += 1
+        else:
+            chunks.append(" ".join(chunk).strip())
+            # reculer pour l'overlap
+            i = max(i - overlap // len(sentence), 0)
+            chunk = []
+            total_length = 0
+
+    if chunk:
+        chunks.append(" ".join(chunk).strip())
+    return chunks
+
 class RAG:
     def __init__(self, modele_path, data_dir):
         self.modele_path = modele_path

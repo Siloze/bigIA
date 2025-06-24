@@ -10,7 +10,11 @@ def load_modele(path):
     )
     return llm
 
-def generate_response(pre_prompt, question: str, modele: Llama, rag: RAG):
+def generate_response_file(str, rag_prompt, pre_prompt, question: str, modele: Llama, rag: RAG):
+    pre_prompt = pre_prompt + "Voici le contenue du fichier attaché à la demande, lis le et traite la question par rapport au contenue:\nFichier.txt: " + str
+    return generate_response(rag_prompt, pre_prompt, question, modele, rag)
+
+def generate_response(rag_prompt, pre_prompt, question: str, modele: Llama, rag: RAG):
 
  # Nombre de chunks à récupérer
     k = 5
@@ -31,7 +35,7 @@ def generate_response(pre_prompt, question: str, modele: Llama, rag: RAG):
 
     # Construire le prompt complet avec contexte + question
     context = "\n\n---\n\n".join(f"[{src}]\n{txt}" for txt, src in retrieved)
-    full_prompt = f"[INST] {pre_prompt}\n\n{context}\n\nQuestion:\n{question} [/INST]"
+    full_prompt = f"[INST] {pre_prompt}\n\n{rag_prompt}\n{context}\n\nVoici la question:\n{question} [/INST]"
 
     print(f"Full prompt: {full_prompt}\n")
     output = modele(full_prompt, max_tokens=512, stop=["</s>"])

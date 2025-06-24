@@ -2,7 +2,8 @@ from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
-API_URL = "http://192.168.1.177:5000/response"  # URL de ton API IA
+API_URL = "http://127.0.0.1:5000/response"
+API_CONFIG_URL = "http://127.0.0.1:5000/config"
 
 def write_interaction(question, anwser):
     lignes = [
@@ -19,19 +20,42 @@ history = []
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    print("Méthode :", request.method)  # Pour vérifier que tu rentres bien ici
     answer = ""
     if request.method == "POST":
         question = request.form["question"]
-        pre_prompt = request.form.get("pre_prompt", "")  # 👈 récupération ici
-        print(pre_prompt)
-        response = requests.post(API_URL, json={"question": question, "pre_prompt": pre_prompt})
+        pre_prompt = request.form.get("pre_prompt", "")
+        rag_prompt = request.form.get("rag_prompt", "")
+        fichier = request.files.get("fichier", None)
+        data = {"question": question, "pre_prompt": pre_prompt, "rag_prompt": rag_prompt}
+        files = {}
+
+        if fichier:
+            files = {"fichier": (fichier.filename, fichier.stream, fichier.mimetype)}
+
+        response = requests.post(API_URL, data=data, files=files)
         if response.status_code == 200:
-            answer = response.json().get("answer")
+            answer = response.json().get("answer", "Aucune réponse.")
         else:
             answer = "Erreur lors de la communication avec l'API."
         history.append({"question": question, "answer": answer})
-    return render_template("index.html", history=history)
+    return render_template("index.html", history=history, preprompt=get_config_param("prompting", "pre_prompt"), ragprompt=get_config_param("prompting", "rag_prompt"))
+
+def get_config_param(section, key):
+    params = {"section": section, "key": key}
+    response = requests.get(API_CONFIG_URL, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        return data.get("value")
+    else:
+        return ""  # ou gérer erreur
+    
+def set_config_param(section, key, value):
+    json_data = {"section": section, "key": key, "value": value}
+    response = requests.post(API_CONFIG_URL, json=json_data)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return ""  # ou gérer erreur
 
 if __name__ == "__main__":
     app.run(port=8000)
