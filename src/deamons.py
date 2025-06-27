@@ -31,12 +31,10 @@ def config():
     if request.method == "GET":
         section = request.args.get("section")
         key = request.args.get("key")
-        print(section, key)
         if not section or not key:
             return jsonify({"error": "Paramètres 'section' et 'key' requis en GET"}), 400
 
         value = get_param(CONFIG_PATH, section, key)
-        print(value)
         if value is None:
             return jsonify({"error": "Paramètre non trouvé"}), 404
         return jsonify({"section": section, "key": key, "value": value})
@@ -58,12 +56,12 @@ def config():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--modele_path", type=str, required=True)
+    parser.add_argument("--model_path", type=str, required=True)
     parser.add_argument("--rag_path", type=str, default="sentence-transformers/all-MiniLM-L6-v2")
     parser.add_argument("--rag_data", type=str, default="./data/")
     args = parser.parse_args()
 
     rag = RAG(args.rag_path, args.rag_data)
-    modele = ai.load_modele(args.modele_path)
+    modele = ai.load_modele(args.model_path)
 
     app.run(host="0.0.0.0", port=5000)

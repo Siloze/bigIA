@@ -5,38 +5,30 @@ app = Flask(__name__)
 API_URL = "http://127.0.0.1:5000/response"
 API_CONFIG_URL = "http://127.0.0.1:5000/config"
 
-def write_interaction(question, anwser):
-    lignes = [
-    "----\n",
-    question + "\n",
-    "----\n",
-    anwser + "\n"
-    ]
-    with open("history.txt", "a", encoding="utf-8") as f:
-        f.write(lignes)
-
 history = []
 
+def send_question(question, pre_prompt, rag_prompt, fichier):
+    data = {"question": question, "pre_prompt": pre_prompt, "rag_prompt": rag_prompt}
+    files = {}
+
+    if fichier:
+        files = {"fichier": (fichier.filename, fichier.stream, fichier.mimetype)}
+
+    response = requests.post(API_URL, data=data, files=files)
+    if response.status_code == 200:
+        answer = response.json().get("answer", "Aucune réponse.")
+    else:
+        answer = "Erreur lors de la communication avec l'API."
+    return answer
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    answer = ""
     if request.method == "POST":
         question = request.form["question"]
         pre_prompt = request.form.get("pre_prompt", "")
         rag_prompt = request.form.get("rag_prompt", "")
-        fichier = request.files.get("fichier", None)
-        data = {"question": question, "pre_prompt": pre_prompt, "rag_prompt": rag_prompt}
-        files = {}
-
-        if fichier:
-            files = {"fichier": (fichier.filename, fichier.stream, fichier.mimetype)}
-
-        response = requests.post(API_URL, data=data, files=files)
-        if response.status_code == 200:
-            answer = response.json().get("answer", "Aucune réponse.")
-        else:
-            answer = "Erreur lors de la communication avec l'API."
+        file = request.files.get("fichier", None)
+        answer = send_question(question, pre_prompt, rag_prompt, file)
         history.append({"question": question, "answer": answer})
     return render_template("index.html", history=history, preprompt=get_config_param("prompting", "pre_prompt"), ragprompt=get_config_param("prompting", "rag_prompt"))
 
@@ -58,4 +50,4 @@ def set_config_param(section, key, value):
         return ""  # ou gérer erreur
 
 if __name__ == "__main__":
-    app.run(port=8000)
+    app.run(host="0.0.0.0", port=8000)

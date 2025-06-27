@@ -1,1 +1,0 @@
-Put your AI modele ggfu and SentenceTransformer dir here

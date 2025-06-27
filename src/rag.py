@@ -2,8 +2,17 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import os
 import re
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-# Fonction simple de découpage du texte en chunks avec chevauchement
+def split_text_recursive(text, chunk_size=1000, overlap=200):
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=overlap,
+        separators=["\n\n", "\n", ".", " ", ""]
+    )
+    chunks = text_splitter.split_text(text)
+    return chunks
+
 def split_text_paragraphs(text, chunk_size=300, overlap=50):
     paragraphs = re.split(r'\n{2,}', text)
     chunks = []
@@ -65,7 +74,8 @@ class RAG:
                 file_path = os.path.join(path, filename)
                 with open(file_path, "r", encoding="utf-8") as f:
                     full_text = f.read()
-                    file_chunks = split_text_paragraphs(full_text, chunk_size=300, overlap=50)
+                    #file_chunks = split_text_paragraphs(full_text, chunk_size=300, overlap=50)
+                    file_chunks = split_text_recursive(full_text)
                     chunks.extend(file_chunks)  # Ajoute les chunks à la liste globale
                     chunk_sources.extend([filename] * len(file_chunks))  # associer les sources
         self.chunks = chunks
