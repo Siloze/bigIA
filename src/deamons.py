@@ -3,7 +3,7 @@ import ai
 from rag import RAG
 import argparse
 from config import get_param, load_config, set_param
-
+from history import append_to_history, clear_history, get_last_messages, get_all_messages
 app = Flask(__name__)
 
 CONFIG_PATH="./config.ini"
@@ -23,8 +23,15 @@ def generate_response():
         answer = ai.generate_response_file(contenu, rag_prompt, pre_prompt, question, modele, rag)
     else:
         answer = ai.generate_response(rag_prompt, pre_prompt, question, modele, rag)
-
+    append_to_history(question, answer)
     return jsonify({"answer": answer})
+
+@app.route("/history", methods=["GET"])
+def history():
+    history = []
+    if request.method == "GET":
+        history = get_all_messages()
+    return history
 
 @app.route("/config", methods=["GET", "POST"])
 def config():

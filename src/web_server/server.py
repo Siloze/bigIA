@@ -4,9 +4,8 @@ import requests
 app = Flask(__name__)
 API_URL = "http://127.0.0.1:5000/response"
 API_CONFIG_URL = "http://127.0.0.1:5000/config"
-
-history = []
-
+API_HISTORY_URL = "http://127.0.0.1:5000/history"
+    
 def send_question(question, pre_prompt, rag_prompt, fichier):
     data = {"question": question, "pre_prompt": pre_prompt, "rag_prompt": rag_prompt}
     files = {}
@@ -29,8 +28,16 @@ def index():
         rag_prompt = request.form.get("rag_prompt", "")
         file = request.files.get("fichier", None)
         answer = send_question(question, pre_prompt, rag_prompt, file)
-        history.append({"question": question, "answer": answer})
-    return render_template("index.html", history=history, preprompt=get_config_param("prompting", "pre_prompt"), ragprompt=get_config_param("prompting", "rag_prompt"))
+
+    return render_template("index.html", history=get_all_history(), preprompt=get_config_param("prompting", "pre_prompt"), ragprompt=get_config_param("prompting", "rag_prompt"))
+
+def get_all_history():
+    response = requests.get(API_HISTORY_URL)
+    if response.status_code == 200:
+        full_history = response.json()
+    else:
+        full_history = [{"question": "", "answer": "Can't get history from AI deamons. Status code: " + response.status_code}]
+    return full_history
 
 def get_config_param(section, key):
     params = {"section": section, "key": key}
@@ -39,7 +46,7 @@ def get_config_param(section, key):
         data = response.json()
         return data.get("value")
     else:
-        return ""  # ou gérer erreur
+        return "Can't get value from config file: please refresh"  # ou gérer erreur
     
 def set_config_param(section, key, value):
     json_data = {"section": section, "key": key, "value": value}
