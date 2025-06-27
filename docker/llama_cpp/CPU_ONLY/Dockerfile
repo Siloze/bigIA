@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y \
     git \
     wget \
     && rm -rf /var/lib/apt/lists/*
-
 # Installer llama-cpp-python avec support CPU
 RUN pip install --no-cache-dir llama-cpp-python
 RUN pip install flask sentence_transformers faiss-cpu

@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 import ai
 from rag import RAG
 import argparse
 from config import get_param, load_config, set_param
 from history import append_to_history, clear_history, get_last_messages, get_all_messages
 app = Flask(__name__)
-
+CORS(app)
 CONFIG_PATH="./config.ini"
 
 @app.route("/response", methods=["POST"])

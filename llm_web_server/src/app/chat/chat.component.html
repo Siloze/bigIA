@@ -1,0 +1,24 @@
+<main>
+    <div class="layout">
+        <div class="chat-container">
+            <div class="chat-history" #scrollContainer id="response-box">
+                <div class="exchange" *ngFor="let entry of history">
+                    <div *ngIf="entry.question" class="message user"><strong>Vous :</strong><br>{{ entry.question }}</div>
+                    <div *ngIf="entry.answer" class="message ia"><strong>IA :</strong><br>{{ entry.answer }}</div>
+                </div>
+            </div>
+            <form class="input-group" action="/" method="post" enctype="multipart/form-data">
+                <input [(ngModel)]="question" type="text" id="question-input" name="question" placeholder="Pose une question..." required>
+                <input type="file" id="file-input" (change)="onFileSelected($event)" accept=".txt" style="display: none;">
+                <label for="file-input" class="file-upload-btn" title="Envoyer un fichier">+</label>
+                <button (click)="sendQuestion()" [hidden]="isWaiting()">Envoyer</button>
+            </form>
+        </div>
+        <div class="settings-container">
+            <label for="pre-prompt">Pre-Prompt</label>
+            <textarea [(ngModel)]="pre_prompt" id="pre-prompt" placeholder="Écris ici ton pre-prompt..."></textarea>
+            <label for="rag-prompt">Rag-Prompt</label>
+            <textarea  [(ngModel)]="rag_prompt" id="rag-prompt" placeholder="Écris ici ton rag-prompt..."></textarea>
+        </div>
+    </div>
+</main>

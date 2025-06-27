@@ -46,12 +46,12 @@ L'API LLM peut être lancée avec différentes configurations :
 
 #### Configuration minimale
 ```bash
-python .\src\deamons.py --modele_path .\modeles\Mistral-7B-Instruct-v0.3-Q4_K_M.gguf
+python .\src\deamons.py --model_path .\modeles\Mistral-7B-Instruct-v0.3-Q4_K_M.gguf
 ```
 
 #### Configuration avec un RAG local (Retrieval-Augmented Generation)
 ```bash
-python .\src\deamons.py --modele_path .\modeles\Mistral-7B-Instruct-v0.3-Q4_K_M.gguf --rag_path .\modeles\all-MiniLM-L6-v2\
+python .\src\deamons.py --model_path .\modeles\Mistral-7B-Instruct-v0.3-Q4_K_M.gguf --rag_path .\modeles\all-MiniLM-L6-v2\
 ```
 
 #### Paramètres disponibles
