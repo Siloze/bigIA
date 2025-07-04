@@ -4,6 +4,10 @@ import os
 import re
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
+class RAG_DATA:
+    name: str
+    content: str
+
 def split_text_recursive(text, chunk_size=1000, overlap=200):
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
@@ -52,37 +56,47 @@ def split_text_sliding_window(text, chunk_size=300, overlap=50):
         chunks.append(" ".join(chunk).strip())
     return chunks
 
+def encode_chunks(embedder: SentenceTransformer, chunks):
+    return embedder.encode(chunks, convert_to_numpy=True)
+
+def get_data_from_dir(data_dir):
+    path = data_dir
+    data = []
+    for filename in os.listdir(path):
+        if filename.endswith(".txt"):
+            file_path = os.path.join(path, filename)
+            with open(file_path, "r", encoding="utf-8") as f:
+                full_text = f.read()
+                data.extend({'name': filename, 'content': full_text}) 
+    return data
+
 class RAG:
-    def __init__(self, modele_path, data_dir):
+    
+    def __init__(self, data, modele_path: str = None, embedder: SentenceTransformer = None):
+        self.data = data
         self.modele_path = modele_path
-        self.data_dir = data_dir
-        self.load_modele(modele_path)
-        self.load_chunks()
-        self.encode_chunks()
+        self.embedder = embedder
+
+        if embedder is None and modele_path is None:
+            raise ValueError("Rag init: you have to set a modele_path or pre-charged embedder for initialization")
+        if embedder is None: # Pour copier un modele déjà chargé dans un RAG
+            self.load_modele()
+        self.init_chunks()
+        self.init_embeddings()
         self.init_faiss()
 
-    def load_modele(self, path):
-        self.modele_path = path
-        self.embedder = SentenceTransformer(path)
+    def load_modele(self):
+        self.embedder = SentenceTransformer(self.modele_path)
         
-    def load_chunks(self):
+    def init_chunks(self):
         chunks = []
-        chunk_sources = [] # A voir comment le retourner
-        path = self.data_dir
-        for filename in os.listdir(path):
-            if filename.endswith(".txt"):
-                file_path = os.path.join(path, filename)
-                with open(file_path, "r", encoding="utf-8") as f:
-                    full_text = f.read()
-                    #file_chunks = split_text_paragraphs(full_text, chunk_size=300, overlap=50)
-                    file_chunks = split_text_recursive(full_text)
-                    chunks.extend(file_chunks)  # Ajoute les chunks à la liste globale
-                    chunk_sources.extend([filename] * len(file_chunks))  # associer les sources
+
+        for full_text in self.data:
+            chunks.extend(split_text_recursive(full_text))
         self.chunks = chunks
-        self.chunk_sources = chunk_sources
-    
-    def encode_chunks(self):
-        self.embeddings = self.embedder.encode(self.chunks, convert_to_numpy=True)
+
+    def init_embeddings(self):
+        self.embeddings = encode_chunks(self.embedder, self.chunks)
     
     def init_faiss(self):
         dimension = self.embeddings.shape[1]

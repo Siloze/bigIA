@@ -8,16 +8,20 @@ export class ApiService {
   apiURL = 'http://127.0.0.1:5000'
   constructor(private http: HttpClient) {}
 
-  sendQuestion(question: string, pre_prompt: string, rag_prompt: string, file: File) {
+  sendQuestion(question: string, pre_prompt: string, rag_prompt: string, file: File | null = null, do_websearch: boolean, doUseRag: boolean) {
     const formData = new FormData();
     formData.append('question', question);
     formData.append('pre_prompt', pre_prompt);
     formData.append('rag_prompt', rag_prompt);
+    formData.append('web_search', String(do_websearch));
+    formData.append('use_rag', String(doUseRag));
 
     if (file) {
       formData.append('fichier', file, file.name);
     }
 
+    console.log("request: ")
+    console.log("question " + question + "\npre_prompt: " + pre_prompt + "\nrag_prompt: " + rag_prompt + "\web_search:" + String(do_websearch), "\nUse_rag: " + String(doUseRag))
     return this.http.post<any>(`${this.apiURL}/response`, formData);
   }
 
