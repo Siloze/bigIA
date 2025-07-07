@@ -1,30 +1,44 @@
-<main>
-    <div class="layout">
-        <div class="chat-container">
-            <div class="chat-history" #scrollContainer id="response-box">
-                <div class="exchange" *ngFor="let entry of history">
-                    <div *ngIf="entry.question" class="message user"><strong>Vous :</strong><br>{{ entry.question }}</div>
-                    <div *ngIf="entry.answer" class="message ia"><strong>IA :</strong><br>{{ entry.answer }}</div>
-                </div>
-            </div>
-            <form class="input-group" action="/" method="post" enctype="multipart/form-data">
-                <input [(ngModel)]="question" type="text" id="question-input" name="question" placeholder="Pose une question..." required>
-                <input type="file" id="file-input" (change)="onFileSelected($event)" accept=".txt" style="display: none;">
-                <label for="file-input" class="file-upload-btn" title="Envoyer un fichier">+</label>
-                <label>{{ getFileName() }}</label>
-                <label class="web_search_on" *ngIf="do_websearch" (click)="toggleWebSearch()">&#64;</label>
-                <label class="web_search_off" *ngIf="!do_websearch" (click)="toggleWebSearch()">&#64;</label>
-                <button (click)="sendQuestion()" [hidden]="isWaiting()">Envoyer</button>
-            </form>
+<p class="setting_toggle" (click)="toggle_setting()">O</p>
+<p class="histories_toggle" (click)="toggle_histories()">O</p>
+
+<div class="layout">
+    <div @dropTop *ngIf="isHistoriesOpen()" class="histories-container">
+        <label class="histories_label">Discussions</label>
+        <div (click)="load_discussion(disc.id)" class="discussions" *ngFor="let disc of discussions">
+            <h5 *ngIf="current_discussion.id === disc.id">{{disc.name}}</h5>
+            <p *ngIf="current_discussion.id !== disc.id">{{disc.name}}</p>
         </div>
-        <div class="settings-container">
-            <label for="pre-prompt">Pre-Prompt</label>
-            <textarea [(ngModel)]="pre_prompt" id="pre-prompt" placeholder="Écris ici ton pre-prompt..."></textarea>
-            <button (click)="toggleRagPromptActivate()">{{ ragprompt_activate_label }}</button>
-            <div *ngIf="isRagPromptActivate()">
-                <label for="rag-prompt">Rag-Prompt</label>
-                <textarea required="true" [(ngModel)]="rag_prompt" id="rag-prompt" placeholder="Écris ici ton rag-prompt..."></textarea>
-            </div>
+        <div (click)="create_discussion()" class="new-discussion">
+            <h5>New chat +</h5>
         </div>
     </div>
-</main>
+    <div class="chat-container">
+        <div class="chat-history" #scrollContainer id="response-box">
+            <div (mouseover)="mouseOverMessage($event, entry.id)" (mouseleave)="mouseLeaveMessage($event, entry.id)" class="exchange" *ngFor="let entry of history">
+                <div *ngIf="entry.answer" class="message user">
+                    <p class="question">{{ entry.question }}</p>        
+                </div>
+                <div class="answer" *ngIf="entry.answer" class="message ia"><p>{{ entry.answer }}</p></div>
+                <p class="message-edit">{{getEditText(entry.id)}}</p>
+            </div>
+        </div>
+        <form class="input-group" action="/" method="post" enctype="multipart/form-data">
+            <input [(ngModel)]="question" type="text" id="question-input" name="question" placeholder="Pose une question..." required>
+            <input type="file" id="file-input" (change)="onFileSelected($event)" accept=".txt" style="display: none;">
+            <label for="file-input" class="file-upload-btn" title="Envoyer un fichier">+</label>
+            <label>{{ getFileName() }}</label>
+            <label class="web_search_on" *ngIf="do_websearch" (click)="toggleWebSearch()">&#64;</label>
+            <label class="web_search_off" *ngIf="!do_websearch" (click)="toggleWebSearch()">&#64;</label>
+            <button @wipeIn (click)="sendQuestion()" *ngIf="!isWaiting()">Envoyer</button>
+        </form>
+    </div>
+    <div @dropBottom *ngIf="isSettingOpen()" class="settings-container">
+        <label for="pre-prompt">Pre-Prompt</label>
+        <textarea [(ngModel)]="pre_prompt" id="pre-prompt" placeholder="Écris ici ton pre-prompt..."></textarea>
+        <button (click)="toggleRagPromptActivate()">{{ ragprompt_activate_label }}</button>
+        <div *ngIf="isRagPromptActivate()">
+            <label for="rag-prompt">Rag-Prompt</label>
+            <textarea required="true" [(ngModel)]="rag_prompt" id="rag-prompt" placeholder="Écris ici ton rag-prompt..."></textarea>
+        </div>
+    </div>
+</div>

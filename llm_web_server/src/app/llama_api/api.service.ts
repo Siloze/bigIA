@@ -8,13 +8,15 @@ export class ApiService {
   apiURL = 'http://127.0.0.1:5000'
   constructor(private http: HttpClient) {}
 
-  sendQuestion(question: string, pre_prompt: string, rag_prompt: string, file: File | null = null, do_websearch: boolean, doUseRag: boolean) {
+  sendQuestion(question: string, pre_prompt: string, rag_prompt: string, file: File | null, do_websearch: boolean, doUseRag: boolean, chat_id: number) {
     const formData = new FormData();
     formData.append('question', question);
     formData.append('pre_prompt', pre_prompt);
     formData.append('rag_prompt', rag_prompt);
     formData.append('web_search', String(do_websearch));
     formData.append('use_rag', String(doUseRag));
+
+    formData.append('id', String(chat_id));
 
     if (file) {
       formData.append('fichier', file, file.name);
@@ -25,8 +27,22 @@ export class ApiService {
     return this.http.post<any>(`${this.apiURL}/response`, formData);
   }
 
-  get_all_history() {
-    return this.http.get<any>(`${this.apiURL}/history`);
+  get_all_history(id: number) {
+    const params = {id}
+    return this.http.get<any>(`${this.apiURL}/history`, { params });
+  }
+
+  get_discussion(id: number) {
+    const params = {id}
+    return this.http.get<any>(`${this.apiURL}/discussion`, {params});
+  }
+
+  get_all_discussions() {
+    return this.http.get<any>(`${this.apiURL}/all_discussions`);
+  }
+
+  create_new_discussions() {
+    return this.http.post<any>(`${this.apiURL}/all_discussions`, {})
   }
 
   get_config_param(section: string, key: string) {
