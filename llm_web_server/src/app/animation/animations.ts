@@ -48,10 +48,10 @@ export const zoomInOut = trigger('zoomInOut', [
 export const collapseVertical = trigger('collapseVertical', [
   transition(':enter', [
     style({ height: '0', overflow: 'hidden', opacity: 0 }),
-    animate('300ms ease-out', style({ height: '*', opacity: 1 }))
+    animate('100ms ease-out', style({ height: '*', opacity: 1 }))
   ]),
   transition(':leave', [
-    animate('300ms ease-in', style({ height: '0', opacity: 0 }))
+    animate('100ms ease-in', style({ height: '0', opacity: 0 }))
   ])
 ]);
 
@@ -65,6 +65,21 @@ export const rotateInOut = trigger('rotateInOut', [
     animate('300ms ease-in', style({ transform: 'rotate(-90deg)', opacity: 0 }))
   ])
 ]);
+
+export const rotateInRight = trigger('rotateInRight', [
+  transition(':enter', [
+    style({ transform: 'rotate(-90deg)', opacity: 0.5 }),
+    animate('300ms ease-out', style({ transform: 'rotate(0)', opacity: 1 }))
+  ]),
+]);
+
+export const rotateInLeft= trigger('rotateInLeft', [
+  transition(':enter', [
+    style({ transform: 'rotate(90deg)', opacity: 0.5 }),
+    animate('300ms ease-out', style({ transform: 'rotate(0)', opacity: 1 }))
+  ]),
+]);
+
 
 // Flip horizontal (utile pour cartes)
 export const flipInOut = trigger('flipInOut', [
@@ -94,7 +109,7 @@ export const delayedFadeIn = trigger('delayedFadeIn', [
     ])
   ]);
 
-  export const popIn = trigger('popIn', [
+  export const pop = trigger('pop', [
     transition(':enter', [
       style({ opacity: 0, transform: 'scale(0.95) translateY(10px)' }),
       animate('250ms ease-out', style({ opacity: 1, transform: 'scale(1) translateY(0)' }))
@@ -104,10 +119,17 @@ export const delayedFadeIn = trigger('delayedFadeIn', [
     ])
   ]);
 
+  export const popIn = trigger('popIn', [
+    transition(':enter', [
+      style({ opacity: 0, transform: 'scale(0.95) translateY(10px)' }),
+      animate('250ms ease-out', style({ opacity: 1, transform: 'scale(1) translateY(0)' }))
+    ]),
+  ]);
+
   export const bounceIn = trigger('bounceIn', [
     transition(':enter', [
-      style({ transform: 'scale(0.5)', opacity: 0 }),
-      animate('600ms cubic-bezier(0.68, -0.55, 0.27, 1.55)', 
+      style({ transform: 'scale(0.7)', opacity: 0 }),
+      animate('300ms cubic-bezier(0.68, -0.55, 0.27, 1.55)', 
         style({ transform: 'scale(1)', opacity: 1 }))
     ])
   ]);
@@ -131,7 +153,7 @@ export const delayedFadeIn = trigger('delayedFadeIn', [
 
   export const wipeIn = trigger('wipeIn', [
     transition(':enter', [
-      style({ width: '0', opacity: 0 }),
+      style({ width: '0px', opacity: 0 }),
       animate('500ms ease-out', style({ width: '*', opacity: 1 }))
     ]),
     transition(':leave', [
@@ -142,20 +164,20 @@ export const delayedFadeIn = trigger('delayedFadeIn', [
   export const dropTop = trigger('dropTop', [
     transition(':enter', [
       style({ transform: 'translateY(-200px)', opacity: 0 }),
-      animate('500ms cubic-bezier(0.23, 1, 0.32, 1)', style({ transform: 'translateY(0)', opacity: 1 }))
+      animate('200ms cubic-bezier(0.23, 1, 0.32, 1)', style({ transform: 'translateY(0)', opacity: 1 }))
     ]),
     transition(':leave', [
-        animate('400ms ease-in', style({ transform: 'translateY(-200px)', opacity: 0 }))
+        animate('200ms ease-in', style({ transform: 'translateY(-200px)', opacity: 0 }))
       ])
   ]);
 
   export const dropBottom = trigger('dropBottom', [
     transition(':enter', [
       style({ transform: 'translateY(200px)', opacity: 0 }),
-      animate('500ms cubic-bezier(0.23, 1, 0.32, 1)', style({ transform: 'translateY(0)', opacity: 1 }))
+      animate('300ms cubic-bezier(0.23, 1, 0.32, 1)', style({ transform: 'translateY(0)', opacity: 1 }))
     ]),
     transition(':leave', [
-        animate('400ms ease-in', style({ transform: 'translateY(200px)', opacity: 0 }))
+        animate('200ms ease-in', style({ transform: 'translateY(200px)', opacity: 0 }))
       ])
   ]);
 

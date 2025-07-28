@@ -8,22 +8,25 @@ export class ApiService {
   apiURL = 'http://127.0.0.1:5000'
   constructor(private http: HttpClient) {}
 
-  sendQuestion(question: string, pre_prompt: string, rag_prompt: string, file: File | null, do_websearch: boolean, doUseRag: boolean, chat_id: number) {
+  sendQuestion(body: {
+    question: string, 
+
+    file: File | null, 
+    web_search: boolean, 
+    chat_id: number,
+  
+    pre_prompt: string,
+
+  }) {
     const formData = new FormData();
-    formData.append('question', question);
-    formData.append('pre_prompt', pre_prompt);
-    formData.append('rag_prompt', rag_prompt);
-    formData.append('web_search', String(do_websearch));
-    formData.append('use_rag', String(doUseRag));
+    formData.append('question', body.question);
 
-    formData.append('id', String(chat_id));
+    formData.append('web_search', String(body.web_search));
+    formData.append('id', String(body.chat_id));
+    if (body.file) { formData.append('fichier', body.file, body.file.name); }
 
-    if (file) {
-      formData.append('fichier', file, file.name);
-    }
+    formData.append('pre_prompt', body.pre_prompt);
 
-    console.log("request: ")
-    console.log("question " + question + "\npre_prompt: " + pre_prompt + "\nrag_prompt: " + rag_prompt + "\web_search:" + String(do_websearch), "\nUse_rag: " + String(doUseRag))
     return this.http.post<any>(`${this.apiURL}/response`, formData);
   }
 
@@ -45,6 +48,14 @@ export class ApiService {
     return this.http.post<any>(`${this.apiURL}/all_discussions`, {})
   }
 
+  delete_discussion(id: number) {
+    return this.http.delete(`${this.apiURL}/discussion/${id}`);
+  }
+
+  renameDiscussion(id: number, newName: string) {
+    return this.http.put(`${this.apiURL}/discussion/${id}`, { name: newName });
+  }
+
   get_config_param(section: string, key: string) {
     const params = {section, key}
     return this.http.get<any>(`${this.apiURL}/config`, { params })
@@ -53,5 +64,10 @@ export class ApiService {
   set_config_param(section: string, key: string, value: string) {
     const body = {section, key, value}
     return this.http.post<any>(`${this.apiURL}/config`, body)
+  }
+
+  reload_rag() {
+    const body = {}
+    return this.http.post<any>(`${this.apiURL}/rag/reload`, body)
   }
 }
