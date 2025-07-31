@@ -11,10 +11,10 @@
     <div class="chat-container">
         <div class="chat-history" #scrollContainer id="response-box">
             <div (mouseover)="mouseOverMessage($event, entry.id)" (mouseleave)="mouseLeaveMessage($event, entry.id)" class="exchange" *ngFor="let entry of getHistory()">
-                <div *ngIf="entry.answer" class="message user">
+                <div *ngIf="entry.question" class="message user">
                     <p class="question">{{ entry.question }}</p>        
                 </div>
-                <div class="answer" *ngIf="entry.answer" class="message ia"><p>{{ entry.answer }}</p></div>
+                <div class="answer" *ngIf="entry.answer || answer" class="message ia"><p>{{ entry.answer ? entry.answer : answer }}</p></div>
                 <p class="message-edit">{{getEditText(entry.id)}}</p>
             </div>
         </div>

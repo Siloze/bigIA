@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, Response, request, stream_with_context, jsonify
 from flask_cors import CORS
 import prompt
 from rag import RAG, get_data_from_dir
@@ -10,36 +10,34 @@ import requests
 app = Flask(__name__)
 CORS(app)
 CONFIG_PATH="./config.ini"
+# AI_API_URL="http://88.187.95.147:6000"
 AI_API_URL="http://localhost:6000"
 rag: RAG
 
 def send_prompt(full_prompt: str):
     params = {"prompt": full_prompt}
     print(full_prompt)
-    try:
-        response = requests.get(AI_API_URL, params=params)
-        response.raise_for_status()  # Lève une exception pour les codes HTTP 4xx/5xx
 
-        data = response.json()       # Peut lever ValueError si ce n’est pas du JSON
-        answer = data.get("answer", "")
-        return answer
+    with requests.get(AI_API_URL, params=params, stream=True) as response:
+        if response.status_code == 200:
+            for line in response.iter_lines(decode_unicode=True):
+                if line and line.startswith("data: "):
+                    token = line.removeprefix("data: ")
+                    print(token, end="", flush=True)
+                    yield f"data: {token}\n\n"
+        else:
+            yield f"data: [ERREUR {response.status_code}]\n\n"
 
-    except requests.exceptions.RequestException as e:
-        # print("Erreur de requête :", e)
-        return "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada."
+        yield "data: [DONE]\n\n"
 
-    except ValueError as e:
-        print("Erreur de décodage JSON :", e)
-    return ""
-
-@app.route("/response", methods=["POST"])
+@app.route("/response", methods=["GET"])
 def generate_response():
-    pre_prompt = request.form.get("pre_prompt", "")
-    question = request.form.get("question", "")
+    pre_prompt = request.args.get("pre_prompt", "")
+    question = request.args.get("question", "")
+    web_search = request.args.get("web_search", "false")
+    chat_id = int(request.args.get("id", 0))
 
-    web_search = request.form.get("web_search", "false")
-    fichier = request.files.get("fichier")
-    chat_id = int(request.form.get("id", 0))
+    fichier = None
 
 
     set_param(CONFIG_PATH, "prompting", "pre_prompt", pre_prompt)
@@ -69,9 +67,10 @@ def generate_response():
         full_prompt = f"{full_prompt}\n{prompt.generate_semantic_memory_prompt(question, rag, semantic_memory_prompt, semantic_memory_count)}"
     final_prompt = prompt.generate_final_prompt(full_prompt, question);
     answer = send_prompt(final_prompt)
-
-    append_to_history(chat_id, question, answer)
-    return jsonify({"answer": answer})
+    return Response(stream_with_context(send_prompt(final_prompt)),
+                        content_type='text/event-stream')
+    # append_to_history(chat_id, question, answer)
+    # return jsonify({"answer": answer})
 
 @app.route("/all_discussions", methods=["GET", "POST"])
 def all_discussions():
@@ -159,7 +158,7 @@ def config():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--rag_path", type=str, default=None) #default="sentence-transformers/all-MiniLM-L6-v2")
+    parser.add_argument("--rag_path", type=str, default="sentence-transformers/all-MiniLM-L6-v2")
     args = parser.parse_args()
 
     config = load_config(CONFIG_PATH)

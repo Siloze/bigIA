@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api-service/api.service';
@@ -30,7 +30,7 @@ export class ChatComponent {
   openSetting: boolean = false;
   openHistories: boolean = false;
 
-  constructor(private chatService: ChatServiceService, private settingService: SettingsServiceService, private apiService: ApiService, private cdr: ChangeDetectorRef, private sanitizer: DomSanitizer) {
+  constructor(private zone: NgZone, private chatService: ChatServiceService, private settingService: SettingsServiceService, private apiService: ApiService, private cdr: ChangeDetectorRef, private sanitizer: DomSanitizer) {
   }
 
   getHistory() { return this.chatService.history }
@@ -132,14 +132,13 @@ export class ChatComponent {
   showWaitingAnimation(question: string) {
     let nb_dot = 0;
     let max_dot = 0;
-    this.chatService.history.push({question: question, answer: "Reflexion", id: -1})
+    this.chatService.history.at(this.chatService.history.length - 1)!.answer = "Reflexion";
     const interval = setInterval(() => {
-      this.chatService.history.pop();
       let wait_answer = "Reflexion"
       for (let index = 0; index < nb_dot; index++) {
         wait_answer += " . "
       }
-      this.chatService.history.push({question: question, answer: wait_answer, id: -1})
+      this.chatService.history.at(this.chatService.history.length - 1)!.answer = wait_answer;
       nb_dot++;
 
       if (nb_dot > max_dot) {
@@ -153,42 +152,130 @@ export class ChatComponent {
     }, 200);
     return interval
   }
+  answer = ""
 
   sendQuestion() {
-    if (this.isWaitingAnwser || !this.verifyInput(this.question))
-        return ;
-    this.question = this.question.trim();
-    this.isWaitingAnwser = true;
-    const question = this.question;
-    this.question = "";
+  if (this.isWaitingAnwser || !this.verifyInput(this.question)) return;
 
-    this.scrollToBottom()
-    
-    let anim_interval = this.showWaitingAnimation(question)
+  this.question = this.question.trim();
+  this.isWaitingAnwser = true;
+  const question = this.question;
+  this.question = "";
 
+  this.scrollToBottom();
+  this.answer = "";
+
+  this.chatService.history.push({ question, answer: "", id: -1 });
+  const lastMessage = this.chatService.history[this.chatService.history.length - 1];
+
+  let answerBuffer = "";
+  let updateScheduled = false;
+  let anim_interval = this.showWaitingAnimation(question)
+
+  this.zone.runOutsideAngular(() => {
     this.apiService.sendQuestion({
-      pre_prompt: this.settingService.pre_prompt, 
-      question: question,
+      pre_prompt: this.settingService.pre_prompt,
+      question,
       chat_id: this.chatService.current_discussion.id,
-      file: this.fichier, 
-
+      file: this.fichier,
       web_search: this.do_websearch,
     }).subscribe({
-      next: (data) => {
-        const answer = data.answer
-        clearInterval(anim_interval)
-        this.chatService.history.pop()
-        this.newAnswer(question, answer)
+      next: (token) => {
+        if (anim_interval) {
+            clearInterval(anim_interval)
+            this.chatService.history.at(this.chatService.history.length - 1)!.answer = "";
+
+        }
+
+        if (token === '[DONE]') {
+          this.zone.run(() => {
+            lastMessage.answer = answerBuffer;
+            this.answer = '';
+            this.isWaitingAnwser = false;
+          });
+          return;
+        }
+
+        answerBuffer += token;
+        
+        if (!updateScheduled && answerBuffer.length > 0) {
+          updateScheduled = true;
+          setTimeout(() => {
+            this.zone.run(() => {
+              this.answer = answerBuffer;
+              updateScheduled = false;
+            });
+          }, 10); // Réduire la fréquence de mise à jour dans Angular
+        }
       },
       error: (err) => {
-        clearInterval(anim_interval)
-        this.chatService.history.pop()
-        this.chatService.history.push({question: question, answer: "Error when sending question, please retry.", id: -1})
-        this.isWaitingAnwser = false;
-        this.do_websearch = false;
+        this.zone.run(() => {
+          console.error("Erreur dans le stream", err);
+          this.isWaitingAnwser = false;
+        });
       }
-    })
-  }
+    });
+  });
+}
+  // sendQuestion() {
+  //   if (this.isWaitingAnwser || !this.verifyInput(this.question))
+  //       return ;
+  //   this.question = this.question.trim();
+  //   this.isWaitingAnwser = true;
+  //   const question = this.question;
+  //   this.question = "";
+
+  //   this.scrollToBottom()
+  //   //let anim_interval = this.showWaitingAnimation(question)
+  //   this.answer = ""
+  //   this.chatService.history.push({question: question, answer: this.answer, id: -1})
+
+  //   let answerBuffer = ""
+  //   this.apiService.sendQuestion({
+  //     pre_prompt: this.settingService.pre_prompt, 
+  //     question: question,
+  //     chat_id: this.chatService.current_discussion.id,
+  //     file: this.fichier, 
+
+  //     web_search: this.do_websearch,
+  //   }).subscribe({
+  //     next: (token) => {
+  //       console.log("token: " + token);
+  //         if (token === '[DONE]') {
+  //           this.chatService.history.at(this.chatService.history.length - 1)!.answer = answerBuffer
+  //           this.answer = ""
+  //           console.log('Flux terminé');
+  //         } else {
+  //           answerBuffer += token
+  //           if (answerBuffer.length - this.answer.length >= 15)
+  //             this.answer = answerBuffer
+  //         }
+  //       // if (token[0] == " ") {
+  //       //   // this.chatService.history.pop()
+  //       //   // this.chatService.history.push({question: question, answer: this.answer, id: -1})
+  //       // }
+
+
+  //       // const answer = data.answer
+  //       // clearInterval(anim_interval)
+  //       // this.chatService.history.pop()
+  //       // this.newAnswer(question, answer)
+  //     },
+  //     error: (err) => {
+  //       console.log("error: ")
+  //       console.dir(err)
+  //       // clearInterval(anim_interval)
+  //       // this.chatService.history.pop()
+  //       // this.chatService.history.push({question: question, answer: "Error when sending question, please retry.", id: -1})
+  //       this.isWaitingAnwser = false;
+  //       this.do_websearch = false;
+  //     }
+  //   })
+  // }
+
+  trackByEntry(index: number, entry: { id: number }): number {
+  return entry.id;
+}
 
   scrollToBottom(): void {
     // Force Angular à détecter les changements
