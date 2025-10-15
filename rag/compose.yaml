@@ -1,0 +1,67 @@
+networks:
+
+  net-rag:
+    driver: bridge
+  net-dev:
+    driver: bridge
+  net-pgadmin:
+    driver: bridge
+
+services:
+
+  dev:
+
+    container_name: rag-dev
+    build:
+      context: ./rag-dev/
+      target: build
+    networks:
+      - net-dev
+    volumes:
+      - ./svelte/frontend:/app
+    ports:
+      - "5173:5173"
+    entrypoint: ["/entrypoint.sh"]
+    restart: on-failure
+
+  service:
+
+    container_name: rag-service
+    build:
+      context: ./rag-service/
+      target: build
+    networks:
+      - net-dev
+      - net-rag
+    restart: on-failure
+
+  data:
+
+    container_name: rag-data
+    build:
+      context: ./rag-data/
+      target: build
+    environment:
+      POSTGRES_PASSWORD: password
+    networks:
+      - net-rag
+      - net-pgadmin
+    ports:
+      - "5432:5432"
+    restart: on-failure
+
+  pgadmin:
+
+    container_name: rag-pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_SERVER_JSON_FILE: '/pgadmin4/servers.json'
+    volumes:
+      - ./rag-pgadmin/servers.json:/pgadmin4/servers.json
+    networks:
+      - net-pgadmin
+    ports:
+      - "9000:80"
+    restart: on-failure

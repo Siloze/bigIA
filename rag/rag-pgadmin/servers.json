@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "RAG",
+            "Group": "Servers",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "rag-data",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "rag"
+        }
+    }
+}
