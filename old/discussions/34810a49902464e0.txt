@@ -1,0 +1,82 @@
+[
+  {
+    "question": "oui",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 0
+  },
+  {
+    "question": "oui",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 1
+  },
+  {
+    "question": "oui",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 2
+  },
+  {
+    "question": "wa",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 3
+  },
+  {
+    "question": "wa",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 4
+  },
+  {
+    "question": "ca marche",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 5
+  },
+  {
+    "question": "mais non",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 6
+  },
+  {
+    "question": "comment ca marche",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 7
+  },
+  {
+    "question": "okay",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 8
+  },
+  {
+    "question": "okay ca passe",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 9
+  },
+  {
+    "question": "okay la team",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 10
+  },
+  {
+    "question": "salut",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 11
+  },
+  {
+    "question": "wa",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 12
+  },
+  {
+    "question": "salut la team",
+    "answer": "Bonjour l'équipe! Comment puis-je vous aider aujourd'hui?",
+    "id": 13
+  },
+  {
+    "question": "comment vas tu",
+    "answer": "Bonjour la team! Je vais bien, merci de demander. Je suis prêt à vous aider. Et vous, comment ça va?",
+    "id": 14
+  },
+  {
+    "question": "T'es sur  ?",
+    "answer": "Je suis désolé, je ne comprends pas la question. Pourriez-vous s'il vous plaît reformuler votre question ou fournir plus de contexte? Je suis là pour vous aider dans la mesure du possible.",
+    "id": 15
+  }
+]

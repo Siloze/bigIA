@@ -1,0 +1,22 @@
+<div class="histories-container">
+    <!-- Liste des discussions -->
+    <div class="discussions" 
+         *ngFor="let disc of getDiscussions()" 
+         [class.active]="getCurrentDiscussion().id === disc.id">
+         
+      <div class="discussion-name" (click)="load_discussion(disc.id)">
+        <i class="fa-regular fa-message"></i>
+        <span>{{ disc.name }}</span>
+      </div>
+  
+      <div class="discussion_prop">
+        <i class="fas fa-pen fa-sm discussion_edit"></i>
+        <i (click)="delete_discussion(disc.id)" class="fa-solid fa-trash fa-sm discussion_delete"></i>
+      </div>
+    </div>
+  
+    <!-- Nouveau chat -->
+    <div (click)="create_discussion()" class="new-discussion">
+      <i class="fa-solid fa-plus"></i> Nouveau chat
+    </div>
+  </div>

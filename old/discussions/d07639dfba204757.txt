@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Comment vas tu",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 0
+  },
+  {
+    "question": "gay",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 1
+  },
+  {
+    "question": "Je suis gay",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 2
+  }
+]

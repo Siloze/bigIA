@@ -1,0 +1,192 @@
+.layout {
+    display: flex;
+    flex: 1;
+    overflow-y: hidden;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #eef1f5;
+    height: 100%;
+}
+
+.chat-container {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+}
+
+.setting_toggle {
+    display: flex;
+    flex-direction: end;
+    position: absolute;
+    left: 96.5vw;
+    top: 3.5vh;
+}
+
+.histories_toggle {
+    display: flex;
+    flex-direction: end;
+    position: absolute;
+    left: 3vw;
+    top: 3.5vh;
+}
+
+
+.settings-container {
+    flex: 2;
+    background-color: #f5f6fa;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+
+.histories-container {
+    flex: 1;
+    background-color: #f5f6fa;
+    padding: 20px;
+    padding-top: 70px;
+    border-right: 1px solid #ccc;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+#question-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+
+.chat-history {
+    flex: 1;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    
+}
+
+
+
+.exchange {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    gap: 25px;
+}
+
+.message {
+    max-width: 70%;
+    padding: 0px 15px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.message.user {
+    background-color: #d1ecf1;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+    max-width: 60%;
+}
+
+.message.ia {
+    align-self: flex-start;
+    border-top-left-radius: 0;
+    max-width: 80%;
+}
+
+.message-edit {
+    align-self: flex-end;
+    width: 100%;
+    margin-left: 90%;
+    
+}
+
+p {
+    white-space: pre-wrap; /* permet de conserver les sauts de ligne et les espaces */
+    word-wrap: break-word; /* permet de briser les mots si besoin */
+
+    font-family: Arial, sans-serif;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+
+pre.question{
+    font-size:16px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.web_search_on{
+    color: #0056b3;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.web_search_off{
+    color: #007bff;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.web_search_off:hover {
+    color: #0056b3;
+}
+
+.send_question{
+    background: none;
+    color: #007bff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.send_question:hover {
+    color: #0056b3;
+
+}
+
+.file-upload-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    border: none;
+}   
+
+.file-upload-btn:hover {
+    color: #0056b3;
+}
+
+.file-name {
+    align-self: center;
+}

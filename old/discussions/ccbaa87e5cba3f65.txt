@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Je suis entrain de faire un llm, basé sur un modele de mistral. Je veux lui simuler une mémoire \"direct\" (liste des 4/5 derniers messages) et une mémoire \"longue\" (recherche semantic de 2/3 messages similaire a la demande de l'utilisateur). Donnes moi une idée de pre prompt ou je mettrait du coup ces echanges etc",
+    "answer": "Pour simuler une mémoire directe, vous pouvez utiliser une variable pour stocker les 4 ou 5 derniers messages échangés entre l'utilisateur et le modèle. Vous pouvez ensuite inclure cette variable dans votre préprompt pour rappeler les messages précédents à chaque tour de conversation.Pour la mémoire longue, vous pouvez utiliser une fonction de recherche sémantique pour trouver les 2 ou 3 messages les plus similaires à la demande de l'utilisateur. Vous pouvez ensuite inclure ces messages dans votre préprompt pour fournir un contexte plus large à la réponse du modèle.Voici un exemple de préprompt que vous pourriez utiliser :\"Vous venez d'échanger les messages suivants avec l'utilisateur : [insérer ici les 4 ou 5 derniers messages]. En outre, voici les messages les plus similaires à la demande de l'utilisateur : [insérer ici les 2 ou 3 messages les plus similaires]. Utilisez ces informations pour formuler votre réponse.\"",
+    "id": 0
+  },
+  {
+    "question": "Je suis entrain de faire un llm, basé sur un modele de mistral. Je veux lui simuler une mémoire \"direct\" (liste des 4/5 derniers messages) et une mémoire \"longue\" (recherche semantic de 2/3 messages similaire a la demande de l'utilisateur). Donnes moi une idée de pre prompt ou je mettrait du coup ces echanges etc",
+    "answer": "Pour simuler une mémoire \"direct\" (liste des 4/5 derniers messages) et une mémoire \"longue\" (recherche sémantique de 2/3 messages similaires à la demande de l'utilisateur), vous pouvez utiliser un système de suivi de conversation et de recherche de similarité.Voici une idée de pré-prompts que vous pourriez utiliser pour incorporer ces fonctionnalités dans votre modèle LLM basé sur Mistral :1. Suivi de conversation :```cssContexte de la conversation :{historique_des_5_derniers_messages}Utilisateur : {dernière_message_utilisateur}Assistant :```1. Recherche de similarité :```cssRecherche de similarité :{historique_des_2_ou_3_messages_similaires}Utilisateur : {dernière_message_utilisateur}Assistant :```Dans ces pré-prompts, vous devez remplacer `{historique_des_5_derniers_messages}` par les 4 ou 5 derniers messages de la conversation, `{dernière_message_utilisateur}` par le dernier message de l'utilisateur, et `{historique_des_2_ou_3_messages_similaires}` par les 2 ou 3 messages les plus similaires à la demande de l'utilisateur.Vous pouvez ajuster le nombre de messages à prendre en compte pour la mémoire directe et la recherche de similarité en fonction de vos besoins et de la complexité de la tâche.En utilisant ces pré-prompts, votre modèle LLM pourra prendre en compte l'historique de la conversation et rechercher des messages similaires pour générer des réponses plus pertinentes et cohérentes.",
+    "id": 1
+  },
+  {
+    "question": "oueue",
+    "answer": "réponse de merde",
+    "id": 2
+  },
+  {
+    "question": "oueue",
+    "answer": "réponse de merde",
+    "id": 3
+  }
+]

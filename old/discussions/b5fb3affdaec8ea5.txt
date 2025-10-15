@@ -1,0 +1,107 @@
+[
+  {
+    "question": "Parles moi du soleil",
+    "answer": "Le soleil est une étoile située au centre du système solaire, à environ 150 millions de kilomètres de la Terre. C'est une étoile de type naine jaune, ce qui signifie qu'elle est relativement petite et chaude par rapport à d'autres étoiles. Le soleil est composé principalement d'hydrogène et d'hélium, et il produit de l'énergie grâce à la fusion nucléaire qui se produit dans son cœur.\n\nLe soleil est la source principale de lumière et de chaleur pour la Terre, et il joue un rôle crucial dans le maintien de la vie sur notre planète. Les rayons du soleil atteignent la Terre sous forme de lumière visible et d'autres formes de rayonnement, comme les rayons ultraviolets et les rayons infrarouges. Ces rayonnements sont absorbés par la Terre et réémis sous forme de chaleur, ce qui crée un effet de serre et permet à la vie de prospérer.\n\nLe soleil a une influence sur de nombreux phénomènes naturels sur Terre, tels que les marées, les saisons et le cycle du jour et de la nuit. Il est également responsable des éclipses de soleil, qui se produisent lorsqu'un autre corps céleste, comme la Lune ou une planète, passe devant le soleil et bloque sa lumière.\n\nEn résumé, le soleil est une étoile vitale pour la Terre et pour la vie qui y prospère, et il joue un rôle important dans de nombreux phénomènes naturels sur notre planète.",
+    "id": 0
+  },
+  {
+    "question": "Parles moi plus de son origine",
+    "answer": "Le soleil s'est formé il y a environ 4,6 milliards d'années à partir d'un nuage de gaz et de poussières appelé nuage moléculaire. Lorsque ce nuage s'est effondré sous l'effet de la gravité, il a commencé à se comprimer et à se réchauffer, ce qui a entraîné la formation d'une protostelle.\n\nAu fil du temps, la protostelle a continué à se comprimer et à se réchauffer, jusqu'à ce qu'elle atteigne des températures sufficiently élevées pour que la fusion nucléaire puisse se produire. C'est ainsi que le soleil est devenu une étoile en fusion nucléaire, produisant de l'énergie grâce à la fusion de l'hydrogène en hélium dans son cœur.\n\nAu cours des milliards d'années qui ont suivi, le soleil a continué à brûler son hydrogène dans son cœur, produisant de l'énergie sous forme de rayonnement électromagnétique, qui Includes la lumière visible, les rayons ultraviolets et les rayons infrarouges. Au fil du temps, le soleil a également commencé à brûler de l'hélium dans son cœur, ce qui a entraîné une augmentation de sa luminosité et de sa température de surface.\n\nEn résumé, le soleil s'est formé il y a environ 4,6 milliards d'années à partir d'un nuage de gaz et de poussières, et il est devenu une étoile en fusion nucléaire grâce à la compression et au réchauffement de la matière qui le composait. Depuis lors, le soleil a produit de l'énergie grâce à la fusion de l'hydrogène et de l'hélium dans son cœur, ce qui a permis à la vie de prospérer sur la Terre.",
+    "id": 1
+  },
+  {
+    "question": "Ah ok merci",
+    "answer": "De rien, je suis là pour répondre à vos questions ! Y a-t-il autre chose que je peux faire pour vous aujourd'hui ?",
+    "id": 2
+  },
+  {
+    "question": "je sais pas donnes moi des idées",
+    "answer": "Voici quelques idées pour des questions que vous pourriez me poser :\n\n* Pouvez-vous me parler des différentes planètes du système solaire et de leurs caractéristiques ?\n* Quelles sont les principales caractéristiques de la Terre par rapport aux autres planètes ?\n* Comment se forment les étoiles dans l'univers ?\n* Quelles sont les principales étapes de la vie d'une étoile, de sa formation à sa mort ?\n* Comment la Terre a-t-elle été formée et comment a-t-elle évolué au fil du temps ?\n* Quelles sont les principales théories sur l'origine de la vie sur Terre ?\n* Comment fonctionne le système solaire et comment les planètes interagissent-elles entre elles ?\n* Quelles sont les principales missions spatiales en cours ou à venir et quels sont leurs objectifs ?\n* Comment les télescopes nous aident-ils à comprendre l'univers et à découvrir de nouvelles choses sur les étoiles et les planètes ?\n* Quelles sont les principales menaces pour la planète Terre et comment pouvons-nous les affronter ?",
+    "id": 3
+  },
+  {
+    "question": "Parles moi de la premiere chose",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 4
+  },
+  {
+    "question": "Comment ca",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 5
+  },
+  {
+    "question": "a bon",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 6
+  },
+  {
+    "question": "mais nan",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 7
+  },
+  {
+    "question": "comment ca",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 8
+  },
+  {
+    "question": "quoi",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 9
+  },
+  {
+    "question": "oui",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 10
+  },
+  {
+    "question": "salut",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 11
+  },
+  {
+    "question": "ok",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 12
+  },
+  {
+    "question": "comment ca",
+    "answer": "AI is offline, default response: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in erat sed urna feugiat lacinia a et sapien. Ut bibendum sapien eget nisi mollis fermentum. Nulla ornare orci ut nulla tempus faucibus. Donec porta lacus nisi, nec condimentum libero laoreet sit amet. Ut at quam rhoncus, tempor justo nec, finibus velit. Nulla velit turpis, feugiat eget placerat quis, sagittis at purus. Donec suscipit vehicula nibh, vitae consectetur est cursus non. Suspendisse pulvinar lacus ac placerat volutpat. Maecenas eget velit at ante facilisis ultrices. Integer vel orci ac tortor scelerisque malesuada.",
+    "id": 13
+  },
+  {
+    "question": "salut",
+    "answer": "Bonjour! Comment puis-je vous aider aujourd'hui?",
+    "id": 14
+  },
+  {
+    "question": "comment vas tu",
+    "answer": "Je vais bien, merci. Je suis un agent conversationnel et je suis là pour vous aider. Comment puis-je vous aider aujourd'hui ?",
+    "id": 15
+  },
+  {
+    "question": "Donnes moi des idées",
+    "answer": "Bien sûr, voici quelques idées :\n\n* Pour les activités en plein air : faire une randonnée, aller à la plage, faire du vélo, jouer au golf, ou encore faire un pique-nique.\n* Pour les activités culturelles : visiter un musée, aller au cinéma, écouter un concert, lire un livre, ou encore visiter une exposition.\n* Pour les activités de détente : faire une séance de méditation, prendre un bain relaxant, faire du yoga, écouter de la musique, ou encore faire une sieste.\n* Pour les activités culinaires : cuisiner un nouveau plat, faire une dégustation de vins, aller au restaurant, ou encore faire une soirée pizza maison.\n\nJ'espère que cela vous sera utile !",
+    "id": 16
+  },
+  {
+    "question": "le premier",
+    "answer": "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
+    "id": 17
+  },
+  {
+    "question": "Nan mais la premiere idée",
+    "answer": "La première idée donnée dans la liste précédente était : \"Faire une randonnée\".",
+    "id": 18
+  },
+  {
+    "question": "Ah ok, donnes moi des idées pour le sud de la france vers marseille",
+    "answer": "Bien sûr, voici quelques idées d'activités à faire dans le sud de la France, vers Marseille :\n\n* Visiter le château d'If, une célèbre forteresse située sur une île au large de Marseille.\n* Découvrir les calanques de Marseille, des paysages spectaculaires composés de falaises calcaires et de criques sauvages.\n* Se promener dans le quartier du Panier, le plus ancien quartier de Marseille, et découvrir ses rues pittoresques et ses marché locaux.\n* Aller à la plage et profiter du soleil et de la mer dans l'une des nombreuses plages de Marseille, comme la plage des Catalans ou la plage de la Pointe Rouge.\n* Visiter le musée desCivilisations de l'Europe et de la Méditerranée (MuCEM), un musée consacré à l'histoire et à la culture des pays méditerranéens.\n* Goûter aux spécialités culinaires de la région, comme la bouillabaisse, une soupe de poisson typique de Marseille, ou encore les navettes marseillaises, des biscuits au citron.\n* Faire une excursion à Cassis, un village pittoresque situé à une trentaine de kilomètres de Marseille, et découvrir les calanques de Cassis, encore plus sauvages et préservées que celles de Marseille.\n* Aller à la découverte des villages perchés des Alpilles, comme Les Baux-de-Provence ou Eyguières, et profiter des magnifiques paysages de la campagne provençale.\n* Faire une balade en vélo le long de la Méditerranée, le long de la cornicheKennedy, et profiter des vues splendides sur la mer.\n\nJ'espère que ces idées vous inspireront pour votre visite dans le sud de la France vers Marseille !",
+    "id": 19
+  },
+  {
+    "question": "Expliques moi la physique quantique avec des metaphore a fortnite",
+    "answer": "Bien sûr, je peux essayer d'expliquer la physique quantique en utilisant des métaphores inspirées de Fortnite !\n\nTout d'abord, imaginez que vous êtes en train de jouer à Fortnite et que vous êtes à la recherche d'un objet rare, comme une arme légendaire ou un équipement spécial. Dans le monde quantique, les particules sont comme ces objets rares, elles sont très difficiles à trouver et à comprendre.\n\nEnsuite, dans Fortnite, il y a des zones dangereuses où il est difficile de survivre, comme la tempête qui se rapproche ou les zones remplies d'ennemis. De la même manière, dans le monde quantique, il y a des phénomènes étranges et dangereux qui peuvent se produire, comme la superposition et l'entrelacement.\n\nLa superposition est comme si vous étiez en train de jouer à Fortnite et que vous aviez trouvé un objet rare, mais que vous ne saviez pas encore exactly ce que c'était. Vous ne pouvez pas dire avec certitude si c'est une arme légendaire ou un équipement spécial, car l'objet est dans un état de superposition, c'est-à-dire qu'il peut être à la fois l'un et l'autre en même temps, jusqu'à ce que vous regardiez de plus près et que vous le déterminiez vraiment.\n\nL'entrelacement est comme si vous étiez en train de jouer à Fortnite en équipe et que vous aviez trouvé un objet rare avec votre coéquipier. Si votre coéquipier prend l'objet, vous le savez immédiatement, même si vous êtes à l'autre bout de la carte. C'est comme si vous étiez connectés à distance, comme les particules dans un état d'entrelacement quantique. Si l'on mesure l'état d'une particule, on en sait immédiatement l'état de l'autre, même si elles sont séparées par une grande distance.\n\nEnfin, dans Fortnite, il y a des phénomènes étranges qui peuvent se produire, comme les portails de téléportation ou les pièges à lasers. De la même manière, dans le monde quantique, il y a des phénomènes étranges qui peuvent se produire, comme le principe d'incertitude, qui dit que l'on ne peut pas connaître en même temps la position et la vitesse d'une particule avec une précision infinie.\n\nJ'espère que ces métaphores vous ont aidé à comprendre un peu mieux la physique quantique !",
+    "id": 20
+  }
+]
