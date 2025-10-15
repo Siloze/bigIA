@@ -64,7 +64,7 @@ def generate_rag_prompt(question: str, rag: RAG, rag_prompt: str, rag_count: int
     return ""
 
 def generate_final_prompt(full_prompt: str, question: str):
-    full_prompt = f"[INST] {full_prompt}\n\nVoici la question: {question} [/INST]"
+    full_prompt = f"[INST] {full_prompt}\n\nRéponds maintenant à la question suivante: {question} [/INST]"
     return full_prompt
 
 

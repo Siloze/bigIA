@@ -184,7 +184,6 @@ export class ChatComponent {
         if (anim_interval) {
             clearInterval(anim_interval)
             this.chatService.history.at(this.chatService.history.length - 1)!.answer = "";
-
         }
 
         if (token === '[DONE]') {

@@ -2,6 +2,8 @@ import os
 os.environ["LLAMA_DEBUG"] = "1"
 
 from llama_cpp import Llama
+
+
 def token_callback(token: str):
     print(token, end="", flush=True)
 

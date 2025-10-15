@@ -10,25 +10,28 @@ import requests
 app = Flask(__name__)
 CORS(app)
 CONFIG_PATH="./config.ini"
-# AI_API_URL="http://88.187.95.147:6000"
-AI_API_URL="http://localhost:6000"
+AI_API_URL="http://88.187.95.147:6000"
+# AI_API_URL="http://localhost:6000"
 rag: RAG
 
-def send_prompt(full_prompt: str):
+def send_prompt(full_prompt: str, question: str, chat_id: int):
     params = {"prompt": full_prompt}
     print(full_prompt)
-
+    full_response = "réponse de merde"
     with requests.get(AI_API_URL, params=params, stream=True) as response:
         if response.status_code == 200:
             for line in response.iter_lines(decode_unicode=True):
                 if line and line.startswith("data: "):
                     token = line.removeprefix("data: ")
+                    full_response += token
                     print(token, end="", flush=True)
                     yield f"data: {token}\n\n"
         else:
             yield f"data: [ERREUR {response.status_code}]\n\n"
+        append_to_history(chat_id, question, full_response)
 
         yield "data: [DONE]\n\n"
+
 
 @app.route("/response", methods=["GET"])
 def generate_response():
@@ -66,10 +69,8 @@ def generate_response():
     if semantic_memory_count > 0:
         full_prompt = f"{full_prompt}\n{prompt.generate_semantic_memory_prompt(question, rag, semantic_memory_prompt, semantic_memory_count)}"
     final_prompt = prompt.generate_final_prompt(full_prompt, question);
-    answer = send_prompt(final_prompt)
-    return Response(stream_with_context(send_prompt(final_prompt)),
+    return Response(stream_with_context(send_prompt(final_prompt, question, chat_id)),
                         content_type='text/event-stream')
-    # append_to_history(chat_id, question, answer)
     # return jsonify({"answer": answer})
 
 @app.route("/all_discussions", methods=["GET", "POST"])
